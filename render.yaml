@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: papiko67
+    runtime: static
+    buildCommand: npm run build
+    staticPublishPath: ./dist
+    autoDeploy: true
