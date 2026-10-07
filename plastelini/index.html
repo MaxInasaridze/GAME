@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#272138">
+  <meta name="description" content="ითამაშე ფერადი ონლაინ პლასტელინით. გამოძერწე, გაწელე და შექმენი შენი პატარა სამყარო.">
+  <title>პლასტელინი — შენი პატარა სახელოსნო</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='20' fill='%238c69f3'/%3E%3Ccircle cx='26' cy='30' r='17' fill='%23ffc75c'/%3E%3Ccircle cx='44' cy='40' r='12' fill='%23ff7ea0'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css"><script src="app.js" defer></script>
+</head>
+<body>
+<header class="header"><a class="brand" href="./"><span class="brand-icon">●</span> პლასტელინი<span class="badge">PLAY</span></a><div class="header-note">პატარა ნაჭრები. დიდი იდეები.</div><button id="export" class="save-button">↧ <span>სურათის შენახვა</span></button></header>
+<main class="workspace">
+  <aside class="materials panel">
+    <div class="panel-heading"><span class="eyebrow">01 / მასალა</span><h1>რა ფერს აირჩევ?</h1></div>
+    <div id="colors" class="colors" aria-label="პლასტელინის ფერები"></div>
+    <label class="custom-color">შენი ფერი <input id="customColor" type="color" value="#9470ed" aria-label="საკუთარი ფერი"></label>
+    <div class="divider"></div>
+    <h2>პირველი ფორმა</h2><div class="shapes" id="shapes">
+      <button class="shape active" data-shape="ball"><span>●</span>ბურთი</button>
+      <button class="shape" data-shape="oval"><span>⬭</span>ოვალი</button>
+      <button class="shape" data-shape="square"><span>■</span>კუბი</button>
+      <button class="shape" data-shape="star"><span>★</span>ვარსკვლავი</button>
+    </div>
+    <label class="size-label" for="size">ნაჭრის ზომა <span id="sizeValue">70</span></label><input id="size" type="range" min="25" max="130" value="70">
+    <button id="add" class="primary">＋ დაამატე ნაჭერი</button>
+    <p class="small-hint">ან აირჩიე „დამატება“ და დააჭირე დაფას.</p>
+    <div class="material-footer"><span class="little-dot"></span> მზადაა შენი იდეისთვის</div>
+  </aside>
+  <section class="studio" aria-label="პლასტელინის დაფა">
+    <div class="studio-top"><div><span class="eyebrow">შენი სახელოსნო</span><h2>შექმენი რაც მოგინდება<span class="spark">✳</span></h2></div><div class="history"><button id="undo" title="უკან (Ctrl+Z)" aria-label="უკან">↶</button><button id="redo" title="წინ (Ctrl+Shift+Z)" aria-label="წინ">↷</button></div></div>
+    <div class="board-wrap"><canvas id="board" width="1200" height="900" aria-label="ინტერაქტიული პლასტელინის დაფა"></canvas><div class="board-tag">MADE BY YOU</div><div id="boardHint" class="board-hint">გადაადგილება · მოკიდე ნაჭერს და გადაათრიე</div></div>
+    <div id="tools" class="toolbar" aria-label="ხელსაწყოები">
+      <button data-tool="move" class="active"><span>✥</span>გადაადგილება</button><button data-tool="sculpt"><span>〰</span>გამოძერწვა</button><button data-tool="squeeze"><span>◉</span>შეკუმშვა</button><button data-tool="draw"><span>✎</span>ძაფი</button><button data-tool="add"><span>＋</span>დამატება</button><button data-tool="erase"><span>⌫</span>წაშლა</button>
+    </div>
+    <div class="studio-bottom"><span id="pieceCount">0 ნაჭერი</span><span>მაუსითაც და თითითაც შეგიძლია თამაში</span></div>
+  </section>
+  <aside class="ideas panel">
+    <span class="eyebrow">02 / ცოტა შთაგონება</span><h2>საიდან დავიწყოთ?</h2>
+    <div class="idea-list"><button data-preset="flower"><span class="idea-emoji">🌼</span><span><strong>პატარა ყვავილი</strong><small>მზიანი განწყობა</small></span><span class="idea-plus">＋</span></button><button data-preset="snail"><span class="idea-emoji">🐌</span><span><strong>ფერადი ლოკოკინა</strong><small>ნელა და მხიარულად</small></span><span class="idea-plus">＋</span></button><button data-preset="space"><span class="idea-emoji">🪐</span><span><strong>ჩემი კოსმოსი</strong><small>შენი პატარა გალაქტიკა</small></span><span class="idea-plus">＋</span></button></div>
+    <div class="tip"><span class="tip-icon">✳</span><h3>იდეალური არ უნდა იყოს.</h3><p>გაწელე კიდეები, აურიე ფერები და სცადე ახალი ფორმები. აქ ყველაფერს შენი ხელი ქმნის.</p></div>
+    <div class="divider"></div><h3 class="how-title">როგორ ვითამაშო?</h3><ol class="instructions"><li>აირჩიე ფერი და ფორმა.</li><li>დაამატე ნაჭერი დაფაზე.</li><li>გამოძერწე და გაერთე!</li></ol>
+    <button id="clear" class="clear-button">ახალი, ცარიელი დაფა</button>
+  </aside>
+</main>
+<div id="toast" role="status" aria-live="polite"></div>
+<dialog id="confirm"><h2>გავასუფთაოთ დაფა?</h2><p>თუ გადაიფიქრებ, უკან დაბრუნების ღილაკი დაგეხმარება.</p><div class="dialog-actions"><button id="cancelClear">გაგრძელება</button><button id="confirmClear" class="primary">გასუფთავება</button></div></dialog>
+</body></html>
